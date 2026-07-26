@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Ritesh Khokle | Software Developer & Engineer Portfolio</title>
+  <meta name="description" content="Professional portfolio of Ritesh Khokle, a Computer Engineering student and Software Developer specializing in pixel-perfect web applications, computer vision systems, and full-stack development.">
+  <meta name="keywords" content="Ritesh Khokle, Software Developer, Computer Engineer, Portfolio, Full-Stack Developer, Web Development, Python, JavaScript, React, Pune">
+  <meta name="author" content="Ritesh Khokle">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ritesh Khokle | Software Developer & Engineer Portfolio">
+  <meta property="og:description" content="Explore projects, skills, and professional journey of Ritesh Khokle, a high-performance software engineer building clean and modern digital solutions.">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuCTyJSi4zkFe_l-xe3Kc7RzBrRJ-K31dLgumd4asbdkmmnq_sXgDF3Ju-Wss1t0FnBYZlcRO84aapHAHsOxhw5gzjbo5hZactEQtahlfxEcmRnfnAEPt5tcinUd8xXUUF-OtTu778hT_FfY0kwZSsDeyVAxtDk-_WA-He6jyiz81a-XWXE88RTTz576yIy5lZrCbuJ1v3Xe-CDMKlTIlK_OlhqPO-JhZj0Zy_Y8qx6GSiObZiRWzhyHaNK2FrjrzcT2Rfuu67vNR9k">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Scripts -->
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="header" id="main-header">
+    <div class="container nav-container">
+      <a href="#home" class="logo-link" id="nav-logo-link">
+        <img class="logo-img" alt="RK Tech Portfolio Logo" src="logo.png">
+      </a>
+      
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="desktop-menu">
+          <li><a href="#home" class="nav-link active" id="nav-link-home">Home</a></li>
+          <li><a href="#about" class="nav-link" id="nav-link-about">About</a></li>
+          <li><a href="#skills" class="nav-link" id="nav-link-skills">Skills</a></li>
+          <li><a href="#projects" class="nav-link" id="nav-link-projects">Projects</a></li>
+          <li><a href="#experience" class="nav-link" id="nav-link-experience">Experience</a></li>
+          <li><a href="#contact" class="nav-link" id="nav-link-contact">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Theme and CTA actions -->
+      <div class="nav-actions" id="header-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+          <span class="material-symbols-outlined">light_mode</span>
+        </button>
+        <a href="resume.pdf" target="_blank" class="btn btn-ghost btn-sm" id="btn-header-resume" download="Ritesh-Khokle-Resume.pdf">Download Resume</a>
+        
+        <!-- Mobile Hamburg menu trigger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#home" class="mobile-nav-link active" id="m-link-home">Home</a>
+    <a href="#about" class="mobile-nav-link" id="m-link-about">About</a>
+    <a href="#skills" class="mobile-nav-link" id="m-link-skills">Skills</a>
+    <a href="#projects" class="mobile-nav-link" id="m-link-projects">Projects</a>
+    <a href="#experience" class="mobile-nav-link" id="m-link-experience">Experience</a>
+    <a href="#contact" class="mobile-nav-link" id="m-link-contact">Contact</a>
+    <a href="resume.pdf" target="_blank" class="btn btn-primary" id="m-btn-resume" style="margin-top: 24px;" download="Ritesh-Khokle-Resume.pdf">Download Resume</a>
+  </nav>
+
+  <!-- Main Content Layout -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <!-- WebGL Fluid Ripple Background -->
+      <div class="hero-bg" id="hero-background-shader">
+        <canvas id="shader-canvas-ANIMATION_3"></canvas>
+      </div>
+      
+      <!-- Canvas Particles Overlay -->
+      <div id="particle-container"></div>
+      
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-tag" id="status-badge">Available for Work</span>
+          <h1 class="display-lg hero-title" id="hero-title-header">
+            Hi, I'm <br><span>Ritesh Khokle</span>
+          </h1>
+          <p class="body-lg hero-desc" id="hero-description">
+            Computer Engineering Student &amp; Software Developer. Crafting pixel-perfect, interactive digital experiences with precise code and modern design systems.
+          </p>
+          <div class="hero-btns" id="hero-action-buttons">
+            <a href="https://github.com/Ritesh14007?tab=repositories" target="_blank" class="btn btn-primary" id="hero-btn-work">
+              View Featured Work
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="resume.pdf" target="_blank" class="btn btn-ghost" id="hero-btn-resume" download="Ritesh-Khokle-Resume.pdf">
+              Download Resume
+              <span class="material-symbols-outlined">download</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Large animated developer illustration (hidden on tablets/mobile) -->
+        <div class="hero-visual reveal" id="hero-artwork-illustration">
+          <img class="hero-img" alt="Developer Holographic Workplace 3D Illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRTBUsOpnUQvrsACbBYrSYhW8K2KTceeOt7R-3oJBvKE3rpZ71nRbLx1m1strCXu3LCBNSNo-u9QgRzZcOi9ME57HBvpxG1Jod9ojeJGOJiDtKETAvYDTuY9cuIRRKmcSH377s28dgixCnlbcmjYs4Y5pcR4iuxpMFW4GjXZYTJPw62-g43yhbcsa7n389kjA_oHc_Sr1AcZ6Ypa1OWAa42suk4nruaINxPz203fLHHjxddZiWruioyVcpdVreKWCD0c4UGDkVaS8">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section-gap" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-xl" id="about-section-heading">About Me</h2>
+          <div class="accent-bar"></div>
+        </div>
+        
+        <div class="glass-card about-grid reveal" id="about-card-container" style="padding: 48px; border-radius: var(--radius-xl);">
+          <div class="about-img-container">
+            <!-- Glow background orb behind image -->
+            <div class="glow-orb glow-primary" style="width: 250px; height: 250px; top: -30px; left: -30px;"></div>
+            <img class="about-img" alt="Ritesh Khokle Portrait" src="profile.jpg">
+          </div>
+          
+          <div class="about-content">
+            <h3 class="headline-lg about-title" id="about-tagline">I build things for the web and beyond.</h3>
+            <p class="body-lg text-on-surface-variant" id="about-paragraph-1">
+              I am a passionate Computer Engineering student with a deep interest in software development and emerging web technologies. My engineering journey involves solving complex problems through elegant, structured code and high-end responsive user interfaces. 
+            </p>
+            <p class="body-lg text-on-surface-variant" id="about-paragraph-2">
+              Currently focused on mastering the full-stack developer ecosystem, developing real-time web applications, and experimenting with Computer Vision systems.
+            </p>
+            
+            <!-- Stats grid -->
+            <div class="about-stats" id="stats-dashboard">
+              <div class="glass-card stat-card" id="stat-projects">
+                <div class="stat-num">15+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="glass-card stat-card" id="stat-tech">
+                <div class="stat-num">10+</div>
+                <div class="stat-label">Technologies</div>
+              </div>
+              <div class="glass-card stat-card" id="stat-certs">
+                <div class="stat-num">5+</div>
+                <div class="stat-label">Certs</div>
+              </div>
+              <div class="glass-card stat-card" id="stat-repos">
+                <div class="stat-num">20+</div>
+                <div class="stat-label">Git Repos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-gap skills-section" id="skills">
+      <div class="container">
+        <!-- Glow Orbs in background -->
+        <div class="glow-orb glow-secondary" style="width: 350px; height: 350px; top: 10%; right: -100px;"></div>
+        <div class="glow-orb glow-primary" style="width: 400px; height: 400px; bottom: -100px; left: -150px;"></div>
+
+        <div class="section-header reveal">
+          <h2 class="headline-xl" id="skills-section-heading">Technical Arsenal</h2>
+          <p class="body-lg text-on-surface-variant" style="margin-top: 8px;">My current technical stacks and creative developer tools</p>
+          <div class="accent-bar" style="margin-top: 16px;"></div>
+        </div>
+        
+        <div class="skills-grid" id="skills-categories-container">
+          <!-- Languages Card -->
+          <div class="glass-card skills-card reveal" id="skills-languages-card">
+            <div class="skills-card-header">
+              <span class="material-symbols-outlined" aria-hidden="true">code</span>
+              <h3 class="headline-lg" id="skills-lang-heading" style="font-size: 1.5rem;">Languages</h3>
+            </div>
+            <div class="skills-list" id="list-languages">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">SQL</span>
+            </div>
+          </div>
+          
+          <!-- Frontend Card -->
+          <div class="glass-card skills-card reveal" id="skills-frontend-card">
+            <div class="skills-card-header">
+              <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
+              <h3 class="headline-lg" id="skills-front-heading" style="font-size: 1.5rem;">Frontend</h3>
+            </div>
+            <div class="skills-list" id="list-frontend">
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">Next.js</span>
+              <span class="skill-chip">HTML5 &amp; CSS3</span>
+              <span class="skill-chip">TailwindCSS</span>
+              <span class="skill-chip">Framer Motion</span>
+            </div>
+          </div>
+          
+          <!-- Backend Card -->
+          <div class="glass-card skills-card reveal" id="skills-backend-card">
+            <div class="skills-card-header">
+              <span class="material-symbols-outlined" aria-hidden="true">database</span>
+              <h3 class="headline-lg" id="skills-back-heading" style="font-size: 1.5rem;">Backend</h3>
+            </div>
+            <div class="skills-list" id="list-backend">
+              <span class="skill-chip">Node.js</span>
+              <span class="skill-chip">Express</span>
+              <span class="skill-chip">MongoDB</span>
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">Firebase</span>
+              <span class="skill-chip">REST APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-gap" id="projects">
+      <div class="container">
+        <div class="projects-header-wrapper reveal">
+          <div class="section-header">
+            <h2 class="headline-xl" id="projects-section-heading">Featured Work</h2>
+            <p class="body-lg text-on-surface-variant" style="margin-top: 8px;">A selection of my recent engineering projects</p>
+            <div class="accent-bar" style="margin-top: 16px;"></div>
+          </div>
+          <a href="https://github.com/Ritesh14007?tab=repositories" target="_blank" class="all-projects-link" id="link-all-projects">
+            All Projects 
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+        
+        <div class="projects-grid" id="projects-list-container">
+          <!-- Project 1 -->
+          <div class="glass-card project-card reveal" id="project-card-rideconnect">
+            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOrA_HuQfP6DMSyY-TqN-633G5Pf8vIwxFmA6qu3yT-Ww8vJsYB-5SUDTnKWsxevqkrZAlM6BLz3u_C7v2jtoygLl8U38EJilvBJI7mEyuXRRM7qRG9f4a47ZRrC14Wn-R5oDNnCBa2aGwYocM1nsIavVWUVg1WZgwmGq6sHGeoGaNiIACzKJJiN3Ce3b6ikxEfLJNzZjWA3cRPu6oPIKhTcUgRc_jGHUHhhOPAMOw_DT_RNTOgJ7usnhYTvkZDS2E75X5yduZbuI')">
+              <span class="project-badge label-caps" id="badge-featured-1">Featured</span>
+            </div>
+            <div class="project-info">
+              <h3 class="headline-lg project-title" id="title-project-rideconnect" style="font-size: 1.5rem;">RideConnect</h3>
+              <p class="body-md project-desc" id="desc-project-rideconnect">
+                A full-stack carpooling application designed to optimize daily commutes through smart route matching and real-time location coordinate updates.
+              </p>
+              <div class="project-tags" id="tags-project-rideconnect">
+                <span class="label-caps project-tag">React</span>
+                <span class="label-caps project-tag">Node.js</span>
+                <span class="label-caps project-tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="code-rideconnect">
+                  Code <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+                <a href="#" class="project-link" id="demo-rideconnect">
+                  Demo <span class="material-symbols-outlined">visibility</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="glass-card project-card reveal" id="project-card-fire-detection">
+            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGSTzW-aWOzy9xz4a1jgLf2oyVvDhsU5fur-NLoACRT0hVC3BZLvftSmJvBb_ptt8d9N9tJbMOnYyaHJhzmbq168ddo3UujuReHi8EwpuV8ZozVDlD64suZRVaRoLSpFhoUT6ppHodIFKzL2gAERMAJm9-KBH6sxlDGRrIi4ycKJcGD51xMdVDuaM7f7uLeZ_ufj3eYv4EsbmqNphe4dbJdDCy_m1agWWOaCz-IvlkSo_Skq9I43UkNY2HoSKKyZmnNM9-DDa7tww')">
+            </div>
+            <div class="project-info">
+              <h3 class="headline-lg project-title" id="title-project-firedetect" style="font-size: 1.5rem;">Fire Detection System</h3>
+              <p class="body-md project-desc" id="desc-project-firedetect">
+                AI-powered surveillance software utilizing custom computer vision models to detect fire and smoke hazards from CCTV cameras in real-time.
+              </p>
+              <div class="project-tags" id="tags-project-firedetect">
+                <span class="label-caps project-tag">Python</span>
+                <span class="label-caps project-tag">OpenCV</span>
+                <span class="label-caps project-tag">TensorFlow</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="code-firedetect">
+                  Code <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="glass-card project-card reveal" id="project-card-minecraft-mod">
+            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0cYbWQK3di1sLbcvkcN1qnQLRd8s6TyAnaRil1zqHZkpi8efvW4a6kNlkkCN6qB_locUGvw-tdIoAtqR4Euce8PR_edY0W7H8Cz22qlYyQPTT91JJQriHeHm8cZBiypntnCADz9tlhNFrkEh94LIMWINQLDnTTGLge1h8lAOYaMCfLmi9ng4lnQt6gM6r8pUz5DTCtW5_YyajFDGy_lsQbh0GA_n-4LjMi2otBwbRb4Q2Xkwh6dsAfLV8SUplBAoMS-hHOZzECK8')">
+            </div>
+            <div class="project-info">
+              <h3 class="headline-lg project-title" id="title-project-minecraft" style="font-size: 1.5rem;">Minecraft Mod</h3>
+              <p class="body-md project-desc" id="desc-project-minecraft">
+                Custom game mechanics mod expansion written for Minecraft introducing custom entities and crafting systems using Forge API.
+              </p>
+              <div class="project-tags" id="tags-project-minecraft">
+                <span class="label-caps project-tag">Java</span>
+                <span class="label-caps project-tag">Forge</span>
+                <span class="label-caps project-tag">Gradle</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="code-minecraft">
+                  Code <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Activity Section -->
+    <section class="section-gap github-section" id="github">
+      <div class="container">
+        <div class="glass-card github-card reveal" id="github-dashboard-container">
+          <div class="github-header">
+            <div>
+              <h2 class="headline-xl" id="github-section-heading" style="margin-bottom: 8px;">GitHub Activity</h2>
+              <p class="body-lg text-on-surface-variant">Continuous learning and open source contributions</p>
+            </div>
+            <a href="https://github.com/Ritesh14007" target="_blank" class="btn btn-ghost github-handle" id="btn-github-link">
+              <span class="material-symbols-outlined" aria-hidden="true font-bold">terminal</span>
+              @Ritesh14007
+            </a>
+          </div>
+          
+          <!-- Dynamic High-DPI Inline SVG Contribution Heatmap -->
+          <div class="github-graph-container" id="github-heatmap-container">
+            <img class="github-graph-img" alt="GitHub Contributions Heatmap Graph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfrYxDLRIxCpqfwsfawU5TvIplvCrT7lccXzD0dO-zDl0DYssI7dw_1qMrYsJw3qQtMBfK5srccJyg5latc5sM2QwObASXRwpaqnXca1CmhWJfgfkqd3nKmIyR1VrpSYfWbhvFILXMrDtX_C1IBFCzntTowBgXTgFHXr4R5fjIJ_bXQrAbsStiDLZU1o6JaUJ6o6_75QBZKMzm5uaTQD7HZi6hyh1l0jvj_FJYGWUmNMVvCXpT32vvWa2Po_IRslHXDv-5eRsbqwM">
+          </div>
+          
+          <div class="github-repos-grid" id="github-repositories-dashboard">
+            <div class="repo-card" id="repo-portfolio">
+              <h4 class="headline-lg repo-name" id="name-repo-portfolio" style="font-size: 1.25rem;">Portfolio-Website</h4>
+              <p class="body-md repo-desc" id="desc-repo-portfolio">My personal portfolio built with clean semantic structures and premium styles.</p>
+              <div class="repo-meta" id="meta-repo-portfolio">
+                <span class="repo-lang"><span class="repo-lang-color lang-js"></span> JavaScript</span>
+                <span class="repo-stars"><span class="material-symbols-outlined">star</span> 12</span>
+              </div>
+            </div>
+            
+            <div class="repo-card" id="repo-rideconnect">
+              <h4 class="headline-lg repo-name" id="name-repo-rideconnect" style="font-size: 1.25rem;">RideConnect-API</h4>
+              <p class="body-md repo-desc" id="desc-repo-rideconnect">Backend API microservices and route management logic for RideConnect.</p>
+              <div class="repo-meta" id="meta-repo-rideconnect">
+                <span class="repo-lang"><span class="repo-lang-color lang-ts"></span> TypeScript</span>
+                <span class="repo-stars"><span class="material-symbols-outlined">star</span> 8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Certifications -->
+    <section class="section-gap" id="experience">
+      <div class="container exp-certs-grid">
+        <!-- Experience Column -->
+        <div class="reveal" id="timeline-experience-column">
+          <h2 class="headline-xl" id="experience-section-heading">Experience</h2>
+          <div class="timeline" id="experience-timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item" id="exp-item-freelance">
+              <div class="timeline-dot pulse" id="dot-exp-1"></div>
+              <div class="timeline-date label-caps" id="date-exp-1">2023 - Present</div>
+              <h3 class="headline-lg timeline-title" id="title-exp-1" style="font-size: 1.35rem;">Freelance Software Developer</h3>
+              <p class="body-md timeline-org" id="org-exp-1">Independent Consultant</p>
+              <p class="body-md timeline-desc" id="desc-exp-1">
+                Building custom, performant web applications and data automation tools for international clients, emphasizing codebase scalability and optimized workflows.
+              </p>
+            </div>
+            <!-- Item 2 -->
+            <div class="timeline-item" id="exp-item-intern">
+              <div class="timeline-dot" id="dot-exp-2"></div>
+              <div class="timeline-date label-caps" id="date-exp-2">2022 - 2023</div>
+              <h3 class="headline-lg timeline-title" id="title-exp-2" style="font-size: 1.35rem;">Web Development Intern</h3>
+              <p class="body-md timeline-org" id="org-exp-2">Tech Solutions Inc.</p>
+              <p class="body-md timeline-desc" id="desc-exp-2">
+                Collaborated with the software engineering team to develop responsive components and integrate REST APIs for cloud administration dashboards.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Certifications Column -->
+        <div class="reveal" id="certifications-list-column">
+          <h2 class="headline-xl" id="certs-section-heading">Certifications</h2>
+          <div class="certs-list" id="certs-cards-list">
+            <!-- Cert 1 -->
+            <div class="glass-card cert-card" id="cert-card-fullstack">
+              <div class="cert-icon-wrapper" id="icon-cert-1">
+                <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+              </div>
+              <div>
+                <h4 class="headline-lg cert-title" id="title-cert-1" style="font-size: 1.15rem;">Full Stack Web Development</h4>
+                <p class="body-md cert-org" id="org-cert-1">Coursera | Meta Professional Certificate</p>
+              </div>
+            </div>
+            <!-- Cert 2 -->
+            <div class="glass-card cert-card" id="cert-card-ml">
+              <div class="cert-icon-wrapper" id="icon-cert-2">
+                <span class="material-symbols-outlined" aria-hidden="true">psychology</span>
+              </div>
+              <div>
+                <h4 class="headline-lg cert-title" id="title-cert-2" style="font-size: 1.15rem;">Machine Learning Specialization</h4>
+                <p class="body-md cert-org" id="org-cert-2">DeepLearning.AI | Stanford University</p>
+              </div>
+            </div>
+            <!-- Cert 3 -->
+            <div class="glass-card cert-card" id="cert-card-aws">
+              <div class="cert-icon-wrapper" id="icon-cert-3">
+                <span class="material-symbols-outlined" aria-hidden="true">cloud</span>
+              </div>
+              <div>
+                <h4 class="headline-lg cert-title" id="title-cert-3" style="font-size: 1.15rem;">AWS Certified Cloud Practitioner</h4>
+                <p class="body-md cert-org" id="org-cert-3">Amazon Web Services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-gap" id="contact">
+      <div class="container">
+        <div class="glass-card contact-card reveal" id="contact-panel-container">
+          <!-- Atmospheric lighting glow in background -->
+          <div class="glow-orb glow-primary" style="width: 300px; height: 300px; top: -100px; right: -100px; opacity: 0.15;"></div>
+          
+          <div class="contact-grid">
+            <div class="contact-info" id="contact-sidebar">
+              <div>
+                <h2 class="headline-xl contact-info-title" id="contact-info-heading">Let's build something extraordinary together.</h2>
+                <p class="body-lg text-on-surface-variant" id="contact-info-desc" style="margin-bottom: 40px;">
+                  I'm currently looking for new developer opportunities and open source collaborations. Whether you have a project idea or just want to say hello, feel free to get in touch!
+                </p>
+                
+                <div class="contact-details" id="contact-channels">
+                  <div class="contact-detail-item" id="channel-email">
+                    <div class="contact-detail-icon"><span class="material-symbols-outlined">mail</span></div>
+                    <span class="contact-detail-text">ritesh.khokle@example.com</span>
+                  </div>
+                  <div class="contact-detail-item" id="channel-location">
+                    <div class="contact-detail-icon"><span class="material-symbols-outlined">location_on</span></div>
+                    <span class="contact-detail-text">Pune, India</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Clean SVG Social Icons -->
+              <div class="social-links" id="contact-socials">
+                <a href="https://github.com/Ritesh14007" target="_blank" class="glass-card social-link" id="soc-github" aria-label="GitHub Profile">
+                  <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="glass-card social-link" id="soc-linkedin" aria-label="LinkedIn Profile">
+                  <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="glass-card social-link" id="soc-twitter" aria-label="Twitter Profile">
+                  <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Contact form with AJAX listener hooks -->
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="name" class="form-label label-caps">Full Name</label>
+                  <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label label-caps">Email Address</label>
+                  <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label label-caps">Subject</label>
+                <input type="text" id="subject" class="form-input" placeholder="Project Inquiry" required>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label label-caps">Message</label>
+                <textarea id="message" class="form-textarea" placeholder="Hi Ritesh, I'd love to discuss a project..." rows="5" required></textarea>
+              </div>
+              
+              <!-- Success/Error alert box -->
+              <div id="form-feedback" class="form-feedback" role="alert"></div>
+              
+              <button type="submit" class="btn btn-primary" id="btn-submit-contact" style="padding: 16px; font-size: 1rem; width: 100%;">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="footer-section">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img class="footer-logo-img" alt="RK Tech Portfolio Logo" src="logo.png">
+        <span class="footer-copy">© 2026 Ritesh Khokle. All rights reserved.</span>
+      </div>
+      <div class="footer-links" id="footer-nav-links">
+        <a href="#about" class="footer-link label-caps">About</a>
+        <a href="#skills" class="footer-link label-caps">Skills</a>
+        <a href="#projects" class="footer-link label-caps">Projects</a>
+        <a href="https://github.com/Ritesh14007" target="_blank" class="footer-link label-caps">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
