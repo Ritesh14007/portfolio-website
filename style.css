@@ -705,7 +705,7 @@ body {
 
 /* Skills Section */
 .skills-section {
-  background-color: var(--surface-container-lowest);
+  background-color: transparent;
   position: relative;
   overflow: hidden;
 }
