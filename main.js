@@ -1,4 +1,9 @@
+let lenisInstance = null;
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Lenis Smooth Scroll Engine
+  initLenisScroll();
+
   // Theme Management
   initTheme();
 
@@ -17,6 +22,89 @@ document.addEventListener('DOMContentLoaded', () => {
   // Contact Form AJAX Handler
   initContactForm();
 });
+
+/* =========================================================================
+   0. Lenis Smooth Scroll Setup
+   ========================================================================= */
+function initLenisScroll() {
+  if (typeof Lenis === 'undefined') {
+    console.warn('Lenis library not loaded.');
+    return;
+  }
+
+  // Telha & Clarke style signature heavy floaty inertia physics
+  lenisInstance = new Lenis({
+    duration: 1.5,
+    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // Exponential luxury dampening curve
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1.6,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenisInstance.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  // Initialize Telha & Clarke style image & card parallax engine
+  initParallaxEngine();
+
+  // Smooth scroll to anchor links using Lenis
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          lenisInstance.scrollTo(targetEl, {
+            offset: -70, // Height of fixed header
+            duration: 1.5
+          });
+        }
+      }
+    });
+  });
+}
+
+/* =========================================================================
+   Parallax Motion Engine (Telha & Clarke Inspired)
+   ========================================================================= */
+function initParallaxEngine() {
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  if (!parallaxElements.length || !lenisInstance) return;
+
+  function updateParallax() {
+    const windowHeight = window.innerHeight;
+
+    parallaxElements.forEach(el => {
+      const speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
+      const rect = el.getBoundingClientRect();
+
+      // Only calculate if element is anywhere near the viewport
+      if (rect.bottom >= -100 && rect.top <= windowHeight + 100) {
+        const centerY = rect.top + rect.height / 2 - windowHeight / 2;
+        const translateY = centerY * speed * -1;
+        
+        // Handle images inside overflow container vs standalone cards
+        if (el.dataset.parallaxType === 'image') {
+          el.style.transform = `scale(1.18) translateY(${translateY}px)`;
+        } else {
+          el.style.transform = `translateY(${translateY}px)`;
+        }
+      }
+    });
+  }
+
+  // Hook into Lenis smooth scroll ticker
+  lenisInstance.on('scroll', updateParallax);
+  updateParallax(); // Initial positioning
+}
 
 /* =========================================================================
    1. Theme Management (Dark / Light Mode)
@@ -155,6 +243,9 @@ function initScrollAnimations() {
   }
 
   window.addEventListener('scroll', updateActiveLink);
+  if (lenisInstance) {
+    lenisInstance.on('scroll', updateActiveLink);
+  }
   updateActiveLink(); // Trigger initially
 }
 
@@ -166,12 +257,13 @@ function initWebGLShader() {
   if (!canvas) return;
 
   function syncSize() {
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || window.innerWidth;
-    const h = canvas.clientHeight || window.innerHeight;
-    if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const parent = canvas.parentElement || document.body;
+    const w = parent.clientWidth || window.innerWidth;
+    const h = parent.clientHeight || window.innerHeight;
+    if (canvas.width !== Math.floor(w * dpr) || canvas.height !== Math.floor(h * dpr)) {
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
     }
   }
 
