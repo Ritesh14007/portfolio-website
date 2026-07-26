@@ -472,7 +472,7 @@ function initContactForm() {
 
   if (!form || !feedback) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Reset feedback
@@ -503,21 +503,42 @@ function initContactForm() {
     submitBtn.textContent = 'Sending Message...';
     submitBtn.style.opacity = '0.7';
 
-    // Simulate Server Request (Delay 1.5s)
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '2bc023fe-50c0-4f73-b74d-4d5fd7beceb6',
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200 && result.success) {
+        showFeedback(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you shortly.`, 'success');
+        form.reset();
+      } else {
+        showFeedback(result.message || 'Something went wrong. Please try again later.', 'error');
+      }
+    } catch (err) {
+      showFeedback('Unable to send message. Please check your internet connection and try again.', 'error');
+    } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       submitBtn.style.opacity = '1';
-
-      // Successful simulated delivery
-      showFeedback(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you shortly.`, 'success');
-      form.reset();
-    }, 1500);
+    }
   });
 
   function showFeedback(msg, type) {
     feedback.textContent = msg;
-    feedback.classList.add(type);
+    feedback.className = `form-feedback ${type}`;
     feedback.style.display = 'block';
     
     // Smooth scroll to feedback message
