@@ -258,9 +258,8 @@ function initWebGLShader() {
 
   function syncSize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const parent = canvas.parentElement || document.body;
-    const w = parent.clientWidth || window.innerWidth;
-    const h = parent.clientHeight || window.innerHeight;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
     if (canvas.width !== Math.floor(w * dpr) || canvas.height !== Math.floor(h * dpr)) {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);

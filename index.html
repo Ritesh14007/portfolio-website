@@ -17,9 +17,11 @@
   <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuCTyJSi4zkFe_l-xe3Kc7RzBrRJ-K31dLgumd4asbdkmmnq_sXgDF3Ju-Wss1t0FnBYZlcRO84aapHAHsOxhw5gzjbo5hZactEQtahlfxEcmRnfnAEPt5tcinUd8xXUUF-OtTu778hT_FfY0kwZSsDeyVAxtDk-_WA-He6jyiz81a-XWXE88RTTz576yIy5lZrCbuJ1v3Xe-CDMKlTIlK_OlhqPO-JhZj0Zy_Y8qx6GSiObZiRWzhyHaNK2FrjrzcT2Rfuu67vNR9k">
   
   <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
   <link rel="stylesheet" href="style.css">
   
   <!-- Scripts -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -74,16 +76,14 @@
   <!-- Main Content Layout -->
   <main id="main-content">
 
+    <!-- Global Full-Page WebGL Fluid Ripple & Particle Background -->
+    <div class="hero-bg" id="hero-background-shader">
+      <canvas id="shader-canvas-ANIMATION_3"></canvas>
+    </div>
+    <div id="particle-container"></div>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <!-- WebGL Fluid Ripple Background -->
-      <div class="hero-bg" id="hero-background-shader">
-        <canvas id="shader-canvas-ANIMATION_3"></canvas>
-      </div>
-      
-      <!-- Canvas Particles Overlay -->
-      <div id="particle-container"></div>
-      
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <span class="hero-tag" id="status-badge">Available for Work</span>
@@ -107,7 +107,7 @@
         
         <!-- Large animated developer illustration (hidden on tablets/mobile) -->
         <div class="hero-visual reveal" id="hero-artwork-illustration">
-          <img class="hero-img" alt="Developer Holographic Workplace 3D Illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRTBUsOpnUQvrsACbBYrSYhW8K2KTceeOt7R-3oJBvKE3rpZ71nRbLx1m1strCXu3LCBNSNo-u9QgRzZcOi9ME57HBvpxG1Jod9ojeJGOJiDtKETAvYDTuY9cuIRRKmcSH377s28dgixCnlbcmjYs4Y5pcR4iuxpMFW4GjXZYTJPw62-g43yhbcsa7n389kjA_oHc_Sr1AcZ6Ypa1OWAa42suk4nruaINxPz203fLHHjxddZiWruioyVcpdVreKWCD0c4UGDkVaS8">
+          <img class="hero-img" data-parallax="0.08" data-parallax-type="image" alt="Developer Holographic Workplace 3D Illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRTBUsOpnUQvrsACbBYrSYhW8K2KTceeOt7R-3oJBvKE3rpZ71nRbLx1m1strCXu3LCBNSNo-u9QgRzZcOi9ME57HBvpxG1Jod9ojeJGOJiDtKETAvYDTuY9cuIRRKmcSH377s28dgixCnlbcmjYs4Y5pcR4iuxpMFW4GjXZYTJPw62-g43yhbcsa7n389kjA_oHc_Sr1AcZ6Ypa1OWAa42suk4nruaINxPz203fLHHjxddZiWruioyVcpdVreKWCD0c4UGDkVaS8">
         </div>
       </div>
     </section>
@@ -124,7 +124,7 @@
           <div class="about-img-container">
             <!-- Glow background orb behind image -->
             <div class="glow-orb glow-primary" style="width: 250px; height: 250px; top: -30px; left: -30px;"></div>
-            <img class="about-img" alt="Ritesh Khokle Portrait" src="profile.jpg">
+            <img class="about-img" data-parallax="0.1" data-parallax-type="image" alt="Ritesh Khokle Portrait" src="profile.jpg">
           </div>
           
           <div class="about-content">
@@ -242,7 +242,7 @@
         <div class="projects-grid" id="projects-list-container">
           <!-- Project 1 -->
           <div class="glass-card project-card reveal" id="project-card-rideconnect">
-            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOrA_HuQfP6DMSyY-TqN-633G5Pf8vIwxFmA6qu3yT-Ww8vJsYB-5SUDTnKWsxevqkrZAlM6BLz3u_C7v2jtoygLl8U38EJilvBJI7mEyuXRRM7qRG9f4a47ZRrC14Wn-R5oDNnCBa2aGwYocM1nsIavVWUVg1WZgwmGq6sHGeoGaNiIACzKJJiN3Ce3b6ikxEfLJNzZjWA3cRPu6oPIKhTcUgRc_jGHUHhhOPAMOw_DT_RNTOgJ7usnhYTvkZDS2E75X5yduZbuI')">
+            <div class="project-img-wrapper" data-parallax="0.08" data-parallax-type="image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOrA_HuQfP6DMSyY-TqN-633G5Pf8vIwxFmA6qu3yT-Ww8vJsYB-5SUDTnKWsxevqkrZAlM6BLz3u_C7v2jtoygLl8U38EJilvBJI7mEyuXRRM7qRG9f4a47ZRrC14Wn-R5oDNnCBa2aGwYocM1nsIavVWUVg1WZgwmGq6sHGeoGaNiIACzKJJiN3Ce3b6ikxEfLJNzZjWA3cRPu6oPIKhTcUgRc_jGHUHhhOPAMOw_DT_RNTOgJ7usnhYTvkZDS2E75X5yduZbuI')">
               <span class="project-badge label-caps" id="badge-featured-1">Featured</span>
             </div>
             <div class="project-info">
@@ -268,7 +268,7 @@
           
           <!-- Project 2 -->
           <div class="glass-card project-card reveal" id="project-card-fire-detection">
-            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGSTzW-aWOzy9xz4a1jgLf2oyVvDhsU5fur-NLoACRT0hVC3BZLvftSmJvBb_ptt8d9N9tJbMOnYyaHJhzmbq168ddo3UujuReHi8EwpuV8ZozVDlD64suZRVaRoLSpFhoUT6ppHodIFKzL2gAERMAJm9-KBH6sxlDGRrIi4ycKJcGD51xMdVDuaM7f7uLeZ_ufj3eYv4EsbmqNphe4dbJdDCy_m1agWWOaCz-IvlkSo_Skq9I43UkNY2HoSKKyZmnNM9-DDa7tww')">
+            <div class="project-img-wrapper" data-parallax="0.08" data-parallax-type="image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGSTzW-aWOzy9xz4a1jgLf2oyVvDhsU5fur-NLoACRT0hVC3BZLvftSmJvBb_ptt8d9N9tJbMOnYyaHJhzmbq168ddo3UujuReHi8EwpuV8ZozVDlD64suZRVaRoLSpFhoUT6ppHodIFKzL2gAERMAJm9-KBH6sxlDGRrIi4ycKJcGD51xMdVDuaM7f7uLeZ_ufj3eYv4EsbmqNphe4dbJdDCy_m1agWWOaCz-IvlkSo_Skq9I43UkNY2HoSKKyZmnNM9-DDa7tww')">
             </div>
             <div class="project-info">
               <h3 class="headline-lg project-title" id="title-project-firedetect" style="font-size: 1.5rem;">Fire Detection System</h3>
@@ -290,7 +290,7 @@
           
           <!-- Project 3 -->
           <div class="glass-card project-card reveal" id="project-card-minecraft-mod">
-            <div class="project-img-wrapper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0cYbWQK3di1sLbcvkcN1qnQLRd8s6TyAnaRil1zqHZkpi8efvW4a6kNlkkCN6qB_locUGvw-tdIoAtqR4Euce8PR_edY0W7H8Cz22qlYyQPTT91JJQriHeHm8cZBiypntnCADz9tlhNFrkEh94LIMWINQLDnTTGLge1h8lAOYaMCfLmi9ng4lnQt6gM6r8pUz5DTCtW5_YyajFDGy_lsQbh0GA_n-4LjMi2otBwbRb4Q2Xkwh6dsAfLV8SUplBAoMS-hHOZzECK8')">
+            <div class="project-img-wrapper" data-parallax="0.08" data-parallax-type="image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0cYbWQK3di1sLbcvkcN1qnQLRd8s6TyAnaRil1zqHZkpi8efvW4a6kNlkkCN6qB_locUGvw-tdIoAtqR4Euce8PR_edY0W7H8Cz22qlYyQPTT91JJQriHeHm8cZBiypntnCADz9tlhNFrkEh94LIMWINQLDnTTGLge1h8lAOYaMCfLmi9ng4lnQt6gM6r8pUz5DTCtW5_YyajFDGy_lsQbh0GA_n-4LjMi2otBwbRb4Q2Xkwh6dsAfLV8SUplBAoMS-hHOZzECK8')">
             </div>
             <div class="project-info">
               <h3 class="headline-lg project-title" id="title-project-minecraft" style="font-size: 1.5rem;">Minecraft Mod</h3>
