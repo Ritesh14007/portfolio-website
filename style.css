@@ -615,7 +615,15 @@ body {
   overflow: hidden;
   transform-style: preserve-3d;
   will-change: transform;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
   transition: border-color var(--transition-normal), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow var(--transition-normal);
+}
+
+.hero-img-frame:active,
+.hero-img-frame.is-pressing {
+  cursor: grabbing;
 }
 
 .hero-img-frame:hover {

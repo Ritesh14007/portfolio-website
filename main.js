@@ -646,15 +646,15 @@ function initContactForm() {
 }
 
 /* =========================================================================
-   7. Interactive 3D Hero Card Tilt Effect
+   7. Interactive 3D Hero Card Press & Hold Drag-Tilt Effect
    ========================================================================= */
 function initHeroCardTilt() {
   const card = document.querySelector('.hero-img-frame');
   if (!card) return;
 
-  const maxTilt = 15; // Max tilt degrees
+  const maxTilt = 18; // Max tilt degrees
   let bounds = card.getBoundingClientRect();
-  let isHovered = false;
+  let isPressed = false;
 
   function updateBounds() {
     bounds = card.getBoundingClientRect();
@@ -663,31 +663,58 @@ function initHeroCardTilt() {
   window.addEventListener('resize', updateBounds);
   window.addEventListener('scroll', updateBounds, { passive: true });
 
-  card.addEventListener('mouseenter', () => {
-    isHovered = true;
+  // Start tilt on mouse down / touch start
+  function handlePressStart(e) {
+    isPressed = true;
     updateBounds();
-    card.style.transition = 'transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
-  });
+    card.classList.add('is-pressing');
+    card.style.transition = 'transform 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
+    handleMove(e);
+  }
 
-  card.addEventListener('mousemove', (e) => {
-    if (!isHovered) return;
+  // End tilt on mouse up / touch end / cancel
+  function handlePressEnd() {
+    if (!isPressed) return;
+    isPressed = false;
+    card.classList.remove('is-pressing');
+    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+  }
+
+  function handleMove(e) {
+    if (!isPressed) return;
+
+    // Support both mouse and touch events
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
     const cardCenterX = bounds.left + bounds.width / 2;
     const cardCenterY = bounds.top + bounds.height / 2;
 
-    const mouseRelX = (e.clientX - cardCenterX) / (bounds.width / 2);
-    const mouseRelY = (e.clientY - cardCenterY) / (bounds.height / 2);
+    const mouseRelX = (clientX - cardCenterX) / (bounds.width / 2);
+    const mouseRelY = (clientY - cardCenterY) / (bounds.height / 2);
 
     const targetRotateY = Math.min(Math.max(mouseRelX * maxTilt, -maxTilt), maxTilt);
     const targetRotateX = Math.min(Math.max(-mouseRelY * maxTilt, -maxTilt), maxTilt);
 
-    card.style.transform = `perspective(1000px) rotateX(${targetRotateX.toFixed(2)}deg) rotateY(${targetRotateY.toFixed(2)}deg) scale3d(1.04, 1.04, 1.04)`;
-  });
+    card.style.transform = `perspective(1000px) rotateX(${targetRotateX.toFixed(2)}deg) rotateY(${targetRotateY.toFixed(2)}deg) scale3d(1.05, 1.05, 1.05)`;
+  }
 
-  card.addEventListener('mouseleave', () => {
-    isHovered = false;
-    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-  });
+  // Event Listeners for Press & Hold
+  card.addEventListener('mousedown', handlePressStart);
+  window.addEventListener('mousemove', handleMove);
+  window.addEventListener('mouseup', handlePressEnd);
+
+  // Touch support for mobile devices
+  card.addEventListener('touchstart', handlePressStart, { passive: true });
+  window.addEventListener('touchmove', handleMove, { passive: true });
+  window.addEventListener('touchend', handlePressEnd);
+  window.addEventListener('touchcancel', handlePressEnd);
+
+  // Prevent default image drag behavior
+  const img = card.querySelector('img');
+  if (img) {
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+  }
 }
 
