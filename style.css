@@ -600,6 +600,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1000px;
 }
 
 .hero-img-frame {
@@ -612,12 +613,13 @@ body {
   border: 1px solid var(--glass-border);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   overflow: hidden;
-  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: border-color var(--transition-normal), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow var(--transition-normal);
 }
 
 .hero-img-frame:hover {
   border-color: var(--glass-border-hover);
-  transform: translateY(-6px);
   box-shadow: 0 25px 50px -15px var(--glass-glow), 0 15px 30px -10px rgba(0,0,0,0.4);
 }
 

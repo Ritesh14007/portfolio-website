@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Contact Form AJAX Handler
   initContactForm();
+
+  // Interactive 3D Hero Photo Card Tilt
+  initHeroCardTilt();
 });
 
 /* =========================================================================
@@ -641,3 +644,50 @@ function initContactForm() {
     return re.test(email);
   }
 }
+
+/* =========================================================================
+   7. Interactive 3D Hero Card Tilt Effect
+   ========================================================================= */
+function initHeroCardTilt() {
+  const card = document.querySelector('.hero-img-frame');
+  if (!card) return;
+
+  const maxTilt = 15; // Max tilt degrees
+  let bounds = card.getBoundingClientRect();
+  let isHovered = false;
+
+  function updateBounds() {
+    bounds = card.getBoundingClientRect();
+  }
+
+  window.addEventListener('resize', updateBounds);
+  window.addEventListener('scroll', updateBounds, { passive: true });
+
+  card.addEventListener('mouseenter', () => {
+    isHovered = true;
+    updateBounds();
+    card.style.transition = 'transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
+  });
+
+  card.addEventListener('mousemove', (e) => {
+    if (!isHovered) return;
+
+    const cardCenterX = bounds.left + bounds.width / 2;
+    const cardCenterY = bounds.top + bounds.height / 2;
+
+    const mouseRelX = (e.clientX - cardCenterX) / (bounds.width / 2);
+    const mouseRelY = (e.clientY - cardCenterY) / (bounds.height / 2);
+
+    const targetRotateY = Math.min(Math.max(mouseRelX * maxTilt, -maxTilt), maxTilt);
+    const targetRotateX = Math.min(Math.max(-mouseRelY * maxTilt, -maxTilt), maxTilt);
+
+    card.style.transform = `perspective(1000px) rotateX(${targetRotateX.toFixed(2)}deg) rotateY(${targetRotateY.toFixed(2)}deg) scale3d(1.04, 1.04, 1.04)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    isHovered = false;
+    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease';
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+  });
+}
+
