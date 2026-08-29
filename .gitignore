@@ -1,0 +1,10 @@
+# Vercel & Environment
+.vercel
+.env
+.env.local
+.env.production
+.env.staging
+
+# Dependencies & Build
+node_modules/
+.ds_store
