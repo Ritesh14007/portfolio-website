@@ -632,9 +632,8 @@ body {
 .hero-img {
   width: 100%;
   max-width: 380px;
-  aspect-ratio: 1;
+  height: auto;
   object-fit: cover;
-  object-position: top;
   border-radius: calc(var(--radius-xl) - 8px);
   border: 1px solid var(--glass-border);
   filter: drop-shadow(0 15px 35px rgba(0,0,0,0.3));
