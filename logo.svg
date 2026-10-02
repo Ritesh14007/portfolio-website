@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" role="img" aria-labelledby="title desc">
   <title id="title">RK Tech Portfolio</title>
-  <desc id="desc">Neon Tiffany-green circuit-style RK monogram above the words Tech Portfolio.</desc>
+  <desc id="desc">Neon Tiffany-green circuit-style RK monogram.</desc>
   <defs>
     <filter id="neon-glow" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB">
       <feGaussianBlur stdDeviation="5" result="soft-glow" />
@@ -11,16 +11,17 @@
       </feMerge>
     </filter>
   </defs>
-  <g fill="none" stroke="#21F1A8" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon-glow)">
-    <path d="M168 295V211H280C330 211 371 247 371 295C371 329 349 356 309 367L375 466H320L270 370H213V466H168V327H280C299 327 312 313 312 295C312 277 299 263 280 263H213V295" />
-    <path d="M435 421V211H465V335L558 211H607L510 323L607 466H556L487 357L465 386V466H435" />
-    <path d="M375 466H435" />
+  <g transform="translate(0 46)">
+    <g fill="none" stroke="#21F1A8" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon-glow)">
+      <path d="M168 295V211H280C330 211 371 247 371 295C371 329 349 356 309 367L375 466H320L270 370H213V466H168V327H280C299 327 312 313 312 295C312 277 299 263 280 263H213V295" />
+      <path d="M435 421V211H465V335L558 211H607L510 323L607 466H556L487 357L465 386V466H435" />
+      <path d="M375 466H435" />
+    </g>
+    <g fill="#21F1A8" filter="url(#neon-glow)">
+      <circle cx="167" cy="295" r="15" />
+      <circle cx="213" cy="295" r="15" />
+      <circle cx="411" cy="421" r="15" />
+      <circle cx="568" cy="270" r="15" />
+    </g>
   </g>
-  <g fill="#21F1A8" filter="url(#neon-glow)">
-    <circle cx="167" cy="295" r="15" />
-    <circle cx="213" cy="295" r="15" />
-    <circle cx="411" cy="421" r="15" />
-    <circle cx="568" cy="270" r="15" />
-  </g>
-  <text x="384" y="544" fill="#F5F7F5" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="600" letter-spacing="6" text-anchor="middle">TECH PORTFOLIO</text>
 </svg>
