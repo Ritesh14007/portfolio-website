@@ -318,9 +318,9 @@ function initWebGLShader() {
       float glow = 0.04 / (mDist + 0.15);
       
       // Fluid blending colors
-      vec3 spaceDark = vec3(0.020, 0.078, 0.141); // Deep Slate Blue
-      vec3 primaryGlow = vec3(0.678, 0.776, 1.000); // #adc6ff
-      vec3 secondaryGlow = vec3(0.290, 0.882, 0.463); // #4ae176
+      vec3 spaceDark = vec3(0.059, 0.067, 0.063); // #0F1110
+      vec3 primaryGlow = vec3(0.129, 0.945, 0.659); // #21F1A8
+      vec3 secondaryGlow = vec3(0.043, 0.239, 0.188); // #0B3D30
 
       vec3 waveColor = mix(spaceDark, primaryGlow, wave);
       vec3 finalColor = mix(waveColor, secondaryGlow, glow * 0.3);
@@ -436,13 +436,11 @@ function initCanvasParticles() {
 
   // Set particle color based on current theme
   function getParticleColor() {
-    const isDark = document.documentElement.classList.contains('dark');
-    return isDark ? 'rgba(173, 198, 255, 0.25)' : 'rgba(0, 90, 194, 0.15)';
+    return 'rgba(33, 241, 168, 0.20)';
   }
 
   function getLineColor(opacity) {
-    const isDark = document.documentElement.classList.contains('dark');
-    return isDark ? `rgba(173, 198, 255, ${opacity * 0.15})` : `rgba(0, 90, 194, ${opacity * 0.1})`;
+    return `rgba(33, 241, 168, ${opacity * 0.15})`;
   }
 
   class Particle {
